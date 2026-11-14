@@ -3,16 +3,18 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+const isProd = process.env.NODE_ENV === "production";
+const repoName = "Alex-Zhang-Personal-Website11";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // Silence the "multiple lockfiles / workspace root" warning.
+  output: "export",
+  basePath: isProd ? `/${repoName}` : "",
+  assetPrefix: isProd ? `/${repoName}/` : "",
   outputFileTracingRoot: __dirname,
   images: {
-    formats: ["image/avif", "image/webp"],
-    // Add your Supabase Storage host here once the CMS is configured, e.g.
-    // { protocol: "https", hostname: "<project-ref>.supabase.co" }
-    remotePatterns: [],
+    unoptimized: true,
   },
 };
 
