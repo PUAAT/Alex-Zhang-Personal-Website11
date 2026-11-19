@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel — Alex Zhang</title>
+  <link rel="icon" type="image/svg+xml" href="images/icon.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ink: '#0A0A0A', surface: '#111111', card: '#171717', line: '#292929', paper: '#F5F3EF', mute: '#A5A5A5', gold: '#C6A66B' },
+          fontFamily: { serif: ['Cormorant Garamond', 'Georgia', 'serif'], sans: ['Inter', 'sans-serif'] },
+          letterSpacing: { editorial: '0.28em' }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- MapLibre GL CSS and JS -->
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+</head>
+<body class="bg-ink text-paper flex flex-col min-h-screen">
+
+  <header class="fixed top-0 inset-x-0 z-50 border-b border-line bg-ink/80 backdrop-blur-md">
+    <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+      <a href="index.html" class="font-serif text-lg tracking-editorial text-paper hover:text-gold transition-colors">ALEX ZHANG</a>
+      <nav class="hidden xl:flex items-center gap-8 text-xs uppercase tracking-widest text-mute">
+        <a href="index.html" class="hover:text-gold transition-colors">Home</a>
+        <a href="about.html" class="hover:text-gold transition-colors">About</a>
+        <a href="journey.html" class="hover:text-gold transition-colors">Journey</a>
+        <a href="experience.html" class="hover:text-gold transition-colors">Experience</a>
+        <a href="journal.html" class="hover:text-gold transition-colors">Journal</a>
+        <a href="photography.html" class="hover:text-gold transition-colors">Photography</a>
+        <a href="travel.html" class="text-gold">Travel</a>
+        <a href="reading.html" class="hover:text-gold transition-colors">Reading</a>
+        <a href="contact.html" class="hover:text-gold transition-colors">Contact</a>
+      </nav>
+      <div class="hidden xl:flex items-center gap-4">
+        <span class="border border-line px-4 py-2 text-xs uppercase tracking-widest text-mute opacity-60">CV unavailable</span>
+      </div>
+      <button id="mobile-menu-btn" class="xl:hidden p-2 text-mute hover:text-paper" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div id="mobile-menu" class="fixed inset-0 z-[60] bg-ink flex-col justify-between p-8 hidden">
+    <div class="flex items-center justify-between">
+      <span class="font-serif text-lg tracking-editorial text-gold">ALEX ZHANG</span>
+      <button id="close-menu-btn" class="p-2 text-mute hover:text-paper" aria-label="Close menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-6 py-8 text-center font-serif text-2xl tracking-wide">
+      <a href="index.html" class="text-mute hover:text-paper">Home</a>
+      <a href="about.html" class="text-mute hover:text-paper">About</a>
+      <a href="journey.html" class="text-mute hover:text-paper">Journey</a>
+      <a href="experience.html" class="text-mute hover:text-paper">Experience</a>
+      <a href="journal.html" class="text-mute hover:text-paper">Journal</a>
+      <a href="photography.html" class="text-mute hover:text-paper">Photography</a>
+      <a href="travel.html" class="text-gold">Travel</a>
+      <a href="reading.html" class="text-mute hover:text-paper">Reading</a>
+      <a href="contact.html" class="text-mute hover:text-paper">Contact</a>
+    </nav>
+    <div class="text-center text-xs tracking-widest text-mute uppercase">&copy; 2026 Alex Zhang</div>
+  </div>
+
+  <main class="flex-grow pt-16">
+    <section class="border-b border-line">
+      <div class="mx-auto max-w-7xl px-6 py-24">
+        <p class="mb-6 text-xs uppercase tracking-editorial text-gold">Exploration</p>
+        <h1 class="font-serif text-5xl leading-[0.95] tracking-tight sm:text-7xl xl:text-8xl">
+          The World,<br><span class="font-serif italic text-mute">Experienced</span>
+        </h1>
+        <p class="mt-8 max-w-xl text-lg font-light leading-relaxed text-mute">
+          Every journey leaves a mark. Documenting the cities, architecture, and cultures that have shaped my global perspective.
+        </p>
+      </div>
+    </section>
+
+    <!-- Destination Cards -->
+    <section class="border-b border-line py-24">
+      <div class="mx-auto max-w-7xl px-6">
+        <h2 class="mb-16 font-serif text-4xl tracking-tight sm:text-5xl">Destinations</h2>
+        <div class="grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+          
+          <div class="bg-card p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-2xl mb-4">
+                <span>🇯🇵</span>
+                <span class="text-xs uppercase tracking-widest text-mute bg-line px-3 py-1">2024</span>
+              </div>
+              <h3 class="font-serif text-2xl text-paper">Tokyo</h3>
+              <p class="text-xs text-mute mt-1">Japan</p>
+              <p class="mt-4 text-sm leading-relaxed text-mute">
+                Urban density, neon reflections in Shinjuku, and traditional serene gardens nestled within modern architecture.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-card p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-2xl mb-4">
+                <span>🇮🇹</span>
+                <span class="text-xs uppercase tracking-widest text-mute bg-line px-3 py-1">2023</span>
+              </div>
+              <h3 class="font-serif text-2xl text-paper">Rome</h3>
+              <p class="text-xs text-mute mt-1">Italy</p>
+              <p class="mt-4 text-sm leading-relaxed text-mute">
+                Centuries of marble permanence, classical proportion, and timeless stone plazas echoing ancient design wisdom.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-card p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-2xl mb-4">
+                <span>🇸🇬</span>
+                <span class="text-xs uppercase tracking-widest text-mute bg-line px-3 py-1">2023</span>
+              </div>
+              <h3 class="font-serif text-2xl text-paper">Singapore</h3>
+              <p class="text-xs text-mute mt-1">Singapore</p>
+              <p class="mt-4 text-sm leading-relaxed text-mute">
+                Biophilic urbanism, hyper-futuristic skylines, and green architecture seamlessly merged with tropical biodiversity.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-card p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-2xl mb-4">
+                <span>🇦🇺</span>
+                <span class="text-xs uppercase tracking-widest text-mute bg-line px-3 py-1">2022</span>
+              </div>
+              <h3 class="font-serif text-2xl text-paper">Melbourne</h3>
+              <p class="text-xs text-mute mt-1">Australia</p>
+              <p class="mt-4 text-sm leading-relaxed text-mute">
+                Cobblestone lane culture, coffee craftsmanship, and vibrant design communities framed by coastal landscapes.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-card p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-2xl mb-4">
+                <span>🇫🇷</span>
+                <span class="text-xs uppercase tracking-widest text-mute bg-line px-3 py-1">2022</span>
+              </div>
+              <h3 class="font-serif text-2xl text-paper">Paris</h3>
+              <p class="text-xs text-mute mt-1">France</p>
+              <p class="mt-4 text-sm leading-relaxed text-mute">
+                Haussmannian boulevards, cultural institutions, and the golden evening light along the River Seine.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive World Map Section -->
+    <section class="py-24">
+      <div class="mx-auto max-w-7xl px-6">
+        <h2 class="mb-6 font-serif text-4xl tracking-tight sm:text-5xl">World Map</h2>
+        <p class="mb-10 max-w-xl text-mute text-sm">
+          Interactive map of destinations explored across four continents. Click any gold pin to inspect details.
+        </p>
+        <div class="relative aspect-video w-full overflow-hidden border border-line bg-card shadow-2xl">
+          <div id="map" class="h-full w-full"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-line bg-surface">
+    <div class="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-12 md:flex-row md:items-center md:justify-between">
+      <div>
+        <p class="font-serif text-2xl tracking-editorial">ALEX ZHANG</p>
+        <p class="mt-2 text-sm text-mute">An evolving perspective on work, life, creativity, and the world.</p>
+      </div>
+      <ul class="flex gap-6 text-xs uppercase tracking-widest text-mute">
+        <li><a href="https://github.com/PUAAT" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors">GitHub</a></li>
+        <li><a href="contact.html" class="hover:text-gold transition-colors">Contact</a></li>
+      </ul>
+    </div>
+    <p class="border-t border-line py-4 text-center text-xs text-mute">&copy; 2026 Alex Zhang</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Initialize MapLibre GL
+    const destinations = [
+      { city: "Tokyo", country: "Japan", coords: [139.6917, 35.6895], visited: "2024" },
+      { city: "Rome", country: "Italy", coords: [12.4964, 41.9028], visited: "2023" },
+      { city: "Singapore", country: "Singapore", coords: [103.8198, 1.3521], visited: "2023" },
+      { city: "Melbourne", country: "Australia", coords: [144.9631, -37.8136], visited: "2022" },
+      { city: "Paris", country: "France", coords: [2.3522, 48.8566], visited: "2022" }
+    ];
+
+    try {
+      const map = new maplibregl.Map({
+        container: 'map',
+        style: 'https://demotiles.maplibre.org/style.json',
+        center: [20, 25],
+        zoom: 1.5,
+        attributionControl: false
+      });
+
+      map.addControl(new maplibregl.NavigationControl(), 'top-right');
+
+      map.on('load', () => {
+        destinations.forEach(d => {
+          const popup = new maplibregl.Popup({ offset: 25 }).setHTML(`
+            <div style="color: #0A0A0A; font-family: sans-serif; padding: 4px;">
+              <strong style="font-size: 14px;">${d.city}, ${d.country}</strong>
+              <div style="font-size: 11px; color: #555; margin-top: 2px;">Visited: ${d.visited}</div>
+            </div>
+          `);
+
+          new maplibregl.Marker({ color: "#C6A66B" })
+            .setLngLat(d.coords)
+            .setPopup(popup)
+            .addTo(map);
+        });
+      });
+    } catch (e) {
+      console.error("MapLibre error:", e);
+    }
+  </script>
+</body>
+</html>

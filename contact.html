@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Alex Zhang</title>
+  <link rel="icon" type="image/svg+xml" href="images/icon.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ink: '#0A0A0A', surface: '#111111', card: '#171717', line: '#292929', paper: '#F5F3EF', mute: '#A5A5A5', gold: '#C6A66B' },
+          fontFamily: { serif: ['Cormorant Garamond', 'Georgia', 'serif'], sans: ['Inter', 'sans-serif'] },
+          letterSpacing: { editorial: '0.28em' }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-ink text-paper flex flex-col min-h-screen">
+
+  <header class="fixed top-0 inset-x-0 z-50 border-b border-line bg-ink/80 backdrop-blur-md">
+    <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+      <a href="index.html" class="font-serif text-lg tracking-editorial text-paper hover:text-gold transition-colors">ALEX ZHANG</a>
+      <nav class="hidden xl:flex items-center gap-8 text-xs uppercase tracking-widest text-mute">
+        <a href="index.html" class="hover:text-gold transition-colors">Home</a>
+        <a href="about.html" class="hover:text-gold transition-colors">About</a>
+        <a href="journey.html" class="hover:text-gold transition-colors">Journey</a>
+        <a href="experience.html" class="hover:text-gold transition-colors">Experience</a>
+        <a href="journal.html" class="hover:text-gold transition-colors">Journal</a>
+        <a href="photography.html" class="hover:text-gold transition-colors">Photography</a>
+        <a href="travel.html" class="hover:text-gold transition-colors">Travel</a>
+        <a href="reading.html" class="hover:text-gold transition-colors">Reading</a>
+        <a href="contact.html" class="text-gold">Contact</a>
+      </nav>
+      <div class="hidden xl:flex items-center gap-4">
+        <span class="border border-line px-4 py-2 text-xs uppercase tracking-widest text-mute opacity-60">CV unavailable</span>
+      </div>
+      <button id="mobile-menu-btn" class="xl:hidden p-2 text-mute hover:text-paper" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div id="mobile-menu" class="fixed inset-0 z-[60] bg-ink flex-col justify-between p-8 hidden">
+    <div class="flex items-center justify-between">
+      <span class="font-serif text-lg tracking-editorial text-gold">ALEX ZHANG</span>
+      <button id="close-menu-btn" class="p-2 text-mute hover:text-paper" aria-label="Close menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-6 py-8 text-center font-serif text-2xl tracking-wide">
+      <a href="index.html" class="text-mute hover:text-paper">Home</a>
+      <a href="about.html" class="text-mute hover:text-paper">About</a>
+      <a href="journey.html" class="text-mute hover:text-paper">Journey</a>
+      <a href="experience.html" class="text-mute hover:text-paper">Experience</a>
+      <a href="journal.html" class="text-mute hover:text-paper">Journal</a>
+      <a href="photography.html" class="text-mute hover:text-paper">Photography</a>
+      <a href="travel.html" class="text-mute hover:text-paper">Travel</a>
+      <a href="reading.html" class="text-mute hover:text-paper">Reading</a>
+      <a href="contact.html" class="text-gold">Contact</a>
+    </nav>
+    <div class="text-center text-xs tracking-widest text-mute uppercase">&copy; 2026 Alex Zhang</div>
+  </div>
+
+  <main class="flex-grow pt-16">
+    <section class="border-b border-line">
+      <div class="mx-auto max-w-7xl px-6 py-24">
+        <p class="mb-6 text-xs uppercase tracking-editorial text-gold">Conversation</p>
+        <h1 class="font-serif text-5xl leading-[0.95] tracking-tight sm:text-7xl xl:text-8xl">
+          Get in Touch
+        </h1>
+        <p class="mt-8 max-w-xl text-lg font-light leading-relaxed text-mute">
+          Whether discussing a potential collaboration, project enquiry, or architectural ideas &mdash; reach out directly.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Form & Info -->
+    <section class="py-24">
+      <div class="mx-auto max-w-7xl px-6 grid gap-16 lg:grid-cols-[2fr_1fr]">
+        
+        <!-- Form -->
+        <div class="border border-line bg-card p-8 sm:p-12">
+          <form id="contact-form" class="space-y-6">
+            <div id="form-success" class="hidden border border-gold/40 bg-gold/10 p-4 text-sm text-gold">
+              Thank you for reaching out! Your message has been received.
+            </div>
+
+            <div>
+              <label for="name" class="block text-xs uppercase tracking-widest text-mute mb-2">Name</label>
+              <input type="text" id="name" required class="w-full border border-line bg-surface px-4 py-3 text-sm text-paper focus:border-gold outline-none transition-colors" placeholder="Jane Doe">
+            </div>
+
+            <div>
+              <label for="email" class="block text-xs uppercase tracking-widest text-mute mb-2">Email</label>
+              <input type="email" id="email" required class="w-full border border-line bg-surface px-4 py-3 text-sm text-paper focus:border-gold outline-none transition-colors" placeholder="jane@example.com">
+            </div>
+
+            <div>
+              <label for="subject" class="block text-xs uppercase tracking-widest text-mute mb-2">Subject</label>
+              <input type="text" id="subject" required class="w-full border border-line bg-surface px-4 py-3 text-sm text-paper focus:border-gold outline-none transition-colors" placeholder="Project Inquiry / Introduction">
+            </div>
+
+            <div>
+              <label for="message" class="block text-xs uppercase tracking-widest text-mute mb-2">Message</label>
+              <textarea id="message" rows="5" required minlength="20" class="w-full border border-line bg-surface px-4 py-3 text-sm text-paper focus:border-gold outline-none transition-colors" placeholder="Tell me about what you're working on..."></textarea>
+            </div>
+
+            <button type="submit" class="w-full border border-gold bg-gold text-ink font-medium px-8 py-4 text-xs uppercase tracking-widest hover:bg-transparent hover:text-gold transition-colors">
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        <!-- Aside Info -->
+        <div class="space-y-12">
+          <div>
+            <p class="text-xs uppercase tracking-editorial text-gold mb-3">Direct Contact</p>
+            <a href="mailto:a30497611@gmail.com" class="font-serif text-2xl text-paper hover:text-gold transition-colors">
+              a30497611@gmail.com
+            </a>
+          </div>
+
+          <div>
+            <p class="text-xs uppercase tracking-editorial text-gold mb-3">Response Time</p>
+            <p class="text-sm text-mute leading-relaxed">
+              Alex typically replies within 2&ndash;3 business days.
+            </p>
+          </div>
+
+          <div>
+            <p class="text-xs uppercase tracking-editorial text-gold mb-3">Connect</p>
+            <ul class="space-y-3 text-sm text-mute">
+              <li>
+                <a href="https://github.com/PUAAT" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors flex items-center gap-2">
+                  <span>&rarr;</span> GitHub (@PUAAT)
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-line bg-surface">
+    <div class="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-12 md:flex-row md:items-center md:justify-between">
+      <div>
+        <p class="font-serif text-2xl tracking-editorial">ALEX ZHANG</p>
+        <p class="mt-2 text-sm text-mute">An evolving perspective on work, life, creativity, and the world.</p>
+      </div>
+      <ul class="flex gap-6 text-xs uppercase tracking-widest text-mute">
+        <li><a href="https://github.com/PUAAT" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors">GitHub</a></li>
+        <li><a href="contact.html" class="hover:text-gold transition-colors">Contact</a></li>
+      </ul>
+    </div>
+    <p class="border-t border-line py-4 text-center text-xs text-mute">&copy; 2026 Alex Zhang</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.getElementById('form-success').classList.remove('hidden');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
